@@ -48,4 +48,17 @@ def update_data():
     data = response.json()
     print(data)
 
-update_data()
+# update_data()
+
+#D---> Delete the data
+
+def delete_data():
+    data = {
+        'id':5
+    }
+    json_data  = json.dumps(data)
+    response = requests.delete(url = URL,data = json_data)
+    data = response.json()
+    print(data)
+
+delete_data()
