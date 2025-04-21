@@ -6,7 +6,7 @@ from rest_framework.routers import DefaultRouter
 
 # Creating the Router object
 router = DefaultRouter()
-
+#registering the Router and providing the basename 
 router.register('studentapi',views.StudentViewSet,basename = 'student')
 # router.register('studentapi/<int:pk>',views.StudentViewSet,basename='')
 
