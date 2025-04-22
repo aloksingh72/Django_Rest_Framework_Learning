@@ -1,22 +1,19 @@
-"""
-URL configuration for project15 project.
 
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/4.2/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
+from api import views
+from rest_framework.routers import DefaultRouter
 
+# Creating the Router object
+router = DefaultRouter()
+#Note---->
+#registering the Router and providing the basename 
+#here studentapi is the preffix where the url is start form
+# views.StudentViewSet: The ViewSet class handling logic for GET, POST, PUT, DELETE, etc.
+#basename-> Used to generate the name of the URL patterns (student-list, student-detail, etc.) if the queryset is not provided in the ViewSet.
+# router.register('studentapi/<int:pk>',views.StudentViewSet,basename='')
+router.register('studentapi',views.StudentReadOnlyModelViewSet,basename = 'student')
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('',include(router.urls)),
 ]
