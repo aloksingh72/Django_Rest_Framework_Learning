@@ -11,7 +11,7 @@ class StudentModelViewSet(viewsets.ModelViewSet):
     serializer_class  = StudentSerializer
     authentication_classes = [SessionAuthentication]
     #Note:-> here we impelement the CustomPermissions
-
+#here we import the custom permission and use it defined in the custompermssion.py file
     permission_classes = [MyPermission]
 
 
