@@ -6,6 +6,7 @@ from .custompermissions import MyPermission
 
 
 # here we are gone to implement the SessionAuthentication along with various permission classes 
+#this is model viewsSet of student
 class StudentModelViewSet(viewsets.ModelViewSet):
     queryset = Student.objects.all()
     serializer_class  = StudentSerializer
